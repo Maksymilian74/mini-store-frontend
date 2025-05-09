@@ -1,5 +1,11 @@
+import {AppRoutes} from './routes/Router.tsx';
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <AppRoutes />
+    </>
+  );
 }
 
 export default App;
