@@ -1,3 +1,4 @@
+// Defines the custom color palette for the MUI theme
 import type {PaletteOptions} from '@mui/material';
 
 const palette: PaletteOptions = {
@@ -14,6 +15,10 @@ const palette: PaletteOptions = {
   background: {
     default: '#ADAEB3',
     paper: '#FFFFFF',
+  },
+  text: {
+    primary: '#000000',
+    secondary: '#6C6C6C',
   },
 };
 
