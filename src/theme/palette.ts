@@ -15,6 +15,10 @@ const palette: PaletteOptions = {
     default: '#ADAEB3',
     paper: '#FFFFFF',
   },
+  text: {
+    primary: '#000000',
+    secondary: '#6C6C6C',
+  },
 };
 
 export default palette;
