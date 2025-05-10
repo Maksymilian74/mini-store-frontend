@@ -10,3 +10,5 @@ node_modules/
 *.log
 coverage/
 *.snap
+
+src/data/products.json

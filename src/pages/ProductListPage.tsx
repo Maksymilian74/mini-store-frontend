@@ -1,6 +1,10 @@
 // Product list page displaying product cards
 import {Typography, Container, Stack} from '@mui/material';
-import ProductListCard from '../components/ProductListCard.tsx';
+import ProductListCard from '../components/ProductListCard';
+import products from '../data/products.json';
+import type {Product} from '../types/Product';
+
+const typedProducts: Product[] = products;
 
 function ProductListPage() {
   return (
@@ -9,7 +13,13 @@ function ProductListPage() {
         <Typography variant="h1" component="h1">
           Wszystkie produkty
         </Typography>
-        <ProductListCard name={'Banany BIO'} price={3.49} />
+        {typedProducts.map((product) => (
+          <ProductListCard
+            key={product.id}
+            name={product.name}
+            price={product.price.main + product.price.fractional / 100}
+          />
+        ))}
       </Stack>
     </Container>
   );
