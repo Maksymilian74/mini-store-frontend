@@ -2,8 +2,8 @@
 import {useState} from 'react';
 import {Card, CardContent, Typography, Stack} from '@mui/material';
 import {ProductListCardStyle} from './ProductListCard.styles';
-import PrimaryButton from '../common/PrimaryButton';
-import QuantityTextField from '../common/QuantityTextField';
+import PrimaryButton from '../../common/PrimaryButton/PrimaryButton';
+import QuantityTextField from '../../common/QuantityTextField/QuantityTextField';
 
 type ProductListCardProps = {
   name: string;

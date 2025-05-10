@@ -1,6 +1,6 @@
 // Product list page displaying product cards
 import {Typography, Container, Stack} from '@mui/material';
-import ProductListCard from '../components/ProductListCard';
+import ProductListCard from '../components/ProductListCard/ProductListCard';
 import products from '../data/products.json';
 import type {Product} from '../types/Product';
 
