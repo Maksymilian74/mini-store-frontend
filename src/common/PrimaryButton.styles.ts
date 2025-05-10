@@ -1,3 +1,4 @@
+// Style for the PrimaryButton component
 import type {SxProps, Theme} from '@mui/material';
 
 export const PrimaryButtonStyle: SxProps<Theme> = {

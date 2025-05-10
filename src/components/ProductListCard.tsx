@@ -1,3 +1,4 @@
+// Product card component displaying product name, price, quantity input, and add-to-cart button
 import {useState} from 'react';
 import {Card, CardContent, Typography, Stack} from '@mui/material';
 import {ProductListCardStyle} from './ProductListCard.styles';

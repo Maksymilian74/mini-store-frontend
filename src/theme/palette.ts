@@ -1,3 +1,4 @@
+// Defines the custom color palette for the MUI theme
 import type {PaletteOptions} from '@mui/material';
 
 const palette: PaletteOptions = {

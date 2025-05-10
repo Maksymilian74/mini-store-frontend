@@ -1,3 +1,4 @@
+// Root component that applies the custom MUI theme and renders application routes.
 import {AppRoutes} from './routes/Router.tsx';
 import {ThemeProvider} from '@mui/material';
 import theme from './theme/theme';

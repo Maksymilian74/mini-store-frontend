@@ -1,3 +1,4 @@
+// Product list page displaying product cards
 import {Typography, Container, Stack} from '@mui/material';
 import ProductListCard from '../components/ProductListCard.tsx';
 

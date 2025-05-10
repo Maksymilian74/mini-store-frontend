@@ -1,3 +1,4 @@
+// Reusable primary color button component
 import {Button} from '@mui/material';
 import {PrimaryButtonStyle} from './PrimaryButton.styles';
 

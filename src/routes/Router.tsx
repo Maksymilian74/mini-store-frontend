@@ -1,3 +1,4 @@
+// Defines application routes using React Router
 import {Routes, Route} from 'react-router-dom';
 import ProductListPage from '../pages/ProductListPage.tsx';
 

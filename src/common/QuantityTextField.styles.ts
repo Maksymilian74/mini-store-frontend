@@ -1,3 +1,4 @@
+// Style for QuantityTextField
 import type {SxProps, Theme} from '@mui/material';
 
 export const QuantityTextFieldStyle: SxProps<Theme> = {

@@ -1,3 +1,4 @@
+// Custom typography settings for MUI theme
 const typography = {
   fontFamily: "'Inter', sans-serif",
   h1: {

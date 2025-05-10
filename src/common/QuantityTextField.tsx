@@ -1,3 +1,4 @@
+// Numeric input field component for selecting quantity
 import {TextField} from '@mui/material';
 import {QuantityTextFieldStyle} from './QuantityTextField.styles';
 
