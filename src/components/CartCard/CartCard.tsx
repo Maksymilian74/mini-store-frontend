@@ -1,8 +1,8 @@
 // Cart card component displaying product name, price, subtotal, quantity input, and a remove button.
 import {Card, CardContent, Typography, Stack} from '@mui/material';
-import QuantityTextField from '../../common/QuantityTextField/QuantityTextField.tsx';
-import {CartCardStyle} from './CartCard.styles.ts';
-import SecondaryButton from '../../common/SecondaryButton/SecondaryButton.tsx';
+import QuantityTextField from '../../common/QuantityTextField/QuantityTextField';
+import {CartCardStyle} from './CartCard.styles';
+import SecondaryButton from '../../common/SecondaryButton/SecondaryButton';
 
 type CartCardProps = {
   name: string;
