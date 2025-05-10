@@ -8,10 +8,7 @@ const Layout = () => {
     <>
       <Navbar />
       <Toolbar />
-      <Container
-        maxWidth="lg"
-        sx={{bgcolor: 'background.paper', minHeight: '100vh', pt: 4}}
-      >
+      <Container maxWidth="lg" sx={{bgcolor: 'background.paper', pt: 4}}>
         <Outlet />
       </Container>
     </>
