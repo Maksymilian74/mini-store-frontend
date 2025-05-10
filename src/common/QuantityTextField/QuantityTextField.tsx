@@ -1,6 +1,6 @@
 // Numeric input field component for selecting quantity
 import {TextField} from '@mui/material';
-import {QuantityTextFieldStyle} from './QuantityTextField.styles';
+import {QuantityTextFieldStyle} from './QuantityTextField.styles.ts';
 
 type QuantityTextFieldProps = {
   value: number;
