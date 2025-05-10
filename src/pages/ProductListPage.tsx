@@ -8,7 +8,7 @@ const typedProducts: Product[] = products;
 
 function ProductListPage() {
   return (
-    <Container maxWidth="md">
+    <Container sx={{width: '100%'}}>
       <Stack spacing={3} width="100%" alignItems="center">
         <Typography variant="h1" component="h1">
           Wszystkie produkty
