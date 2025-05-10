@@ -8,7 +8,7 @@ function ProductListPage() {
         <Typography variant="h1" component="h1">
           Wszystkie produkty
         </Typography>
-        <ProductListCard price={3.49} name={'Banany BIO'} />
+        <ProductListCard name={'Banany BIO'} price={3.49} />
       </Stack>
     </Container>
   );

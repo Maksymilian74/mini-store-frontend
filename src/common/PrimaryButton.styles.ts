@@ -7,7 +7,7 @@ export const PrimaryButtonStyle: SxProps<Theme> = {
   textTransform: 'none',
   px: 1.5,
   py: 0.5,
-  fontWeight: 400,
+  fontWeight: 600,
   '&:hover': {
     backgroundColor: 'primary.dark',
   },
