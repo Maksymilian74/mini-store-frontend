@@ -6,7 +6,7 @@ import CartSummaryBox from '../components/CartSummaryBox';
 function CartPage() {
   return (
     <Container sx={{width: '100%'}}>
-      <Stack spacing={3} width="100%" alignItems="center">
+      <Stack spacing={3} width="100%" alignItems="center" sx={{pb: 3}}>
         <Typography variant="h1" component="h1">
           Twój koszyk
         </Typography>
@@ -16,7 +16,7 @@ function CartPage() {
           justifyContent="space-between"
           sx={{width: '100%'}}
         >
-          <Stack sx={{width: '100%'}}>
+          <Stack spacing={2} sx={{width: '100%'}}>
             <CartCard
               name="Banany BIO"
               price={3.49}

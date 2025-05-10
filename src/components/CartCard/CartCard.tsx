@@ -24,7 +24,7 @@ const CartCard = ({
   return (
     <Card variant="outlined" sx={CartCardStyle}>
       <CardContent>
-        <Stack spacing={2}>
+        <Stack spacing={1}>
           <Stack
             direction="row"
             justifyContent="space-between"
