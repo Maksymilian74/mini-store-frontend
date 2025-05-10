@@ -1,30 +1,20 @@
 // Cart card component displaying product name, price, subtotal, quantity input, and a remove button.
 import {Card, CardContent, Typography, Stack} from '@mui/material';
-import QuantityTextField from '../../common/QuantityTextField/QuantityTextField';
-import {CartCardStyle} from './CartCard.styles';
-import SecondaryButton from '../../common/SecondaryButton/SecondaryButton';
+import {SummaryCardStyle} from './SummaryCard.styles';
 
-type CartCardProps = {
+type SummaryCardProps = {
   name: string;
   price: number;
   quantity: number;
-  onQuantityChange: (newQuantity: number) => void;
-  onRemove: () => void;
 };
 
-const CartCard = ({
-  name,
-  price,
-  quantity,
-  onQuantityChange,
-  onRemove,
-}: CartCardProps) => {
+const SummaryCard = ({name, price, quantity}: SummaryCardProps) => {
   const subtotal = (price * quantity).toFixed(2);
 
   return (
-    <Card variant="outlined" sx={CartCardStyle}>
+    <Card variant="outlined" sx={SummaryCardStyle}>
       <CardContent>
-        <Stack spacing={1}>
+        <Stack spacing={2} sx={{px: 3}}>
           <Stack
             direction="row"
             justifyContent="space-between"
@@ -39,19 +29,17 @@ const CartCard = ({
             justifyContent="space-between"
             alignItems="center"
           >
-            <Typography variant="body1">Suma częściowa</Typography>
-            <Typography variant="body2">{subtotal} PLN</Typography>
+            <Typography variant="body1">Ilość</Typography>
+            <Typography variant="body2">{quantity} szt.</Typography>
           </Stack>
 
           <Stack
             direction="row"
-            spacing={2}
+            justifyContent="space-between"
             alignItems="center"
-            justifyContent="flex-end"
-            sx={{px: 2}}
           >
-            <QuantityTextField value={quantity} onChange={onQuantityChange} />
-            <SecondaryButton onClick={onRemove}>Usuń</SecondaryButton>
+            <Typography variant="body1">Suma częściowa</Typography>
+            <Typography variant="body2">{subtotal} PLN</Typography>
           </Stack>
         </Stack>
       </CardContent>
@@ -59,4 +47,4 @@ const CartCard = ({
   );
 };
 
-export default CartCard;
+export default SummaryCard;
