@@ -4,6 +4,7 @@ import CartCard from '../components/CartCard/CartCard';
 import CartSummaryBox from '../components/CartSummaryBox';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {useCart} from '../hooks/useCart';
+import {toast} from 'react-toastify';
 
 function CartPage() {
   const {cartItems, removeFromCart, changeQuantity} = useCart();
@@ -42,7 +43,10 @@ function CartPage() {
                   price={item.price}
                   quantity={item.quantity}
                   onQuantityChange={(q) => changeQuantity(item.id, q)}
-                  onRemove={() => removeFromCart(item.id)}
+                  onRemove={() => {
+                    removeFromCart(item.id);
+                    toast.info(`Usunięto z koszyka`);
+                  }}
                 />
               ))}
             </Stack>
