@@ -5,22 +5,20 @@ import OutlinedButton from '../common/OutlinedButton/OutlinedButton';
 import PrimaryButton from '../common/PrimaryButton/PrimaryButton';
 import {useCart} from '../hooks/useCart';
 import {useNavigate} from 'react-router-dom';
+import {sumCartValue} from '../utils/sumCartValue';
 
 function SummaryPage() {
   const {cartItems} = useCart();
   const navigate = useNavigate();
 
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  const total = sumCartValue(cartItems);
 
   const handleOrder = () => {
     localStorage.setItem(
       'orderSummary',
       JSON.stringify({
         items: cartItems,
-        total: cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0),
+        total: sumCartValue(cartItems),
       })
     );
 

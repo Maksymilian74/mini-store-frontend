@@ -5,14 +5,12 @@ import CartSummaryBox from '../components/CartSummaryBox';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {useCart} from '../hooks/useCart';
 import {toast} from 'react-toastify';
+import {sumCartValue} from '../utils/sumCartValue';
 
 function CartPage() {
   const {cartItems, removeFromCart, changeQuantity} = useCart();
 
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  const total = sumCartValue(cartItems);
 
   return (
     <Container sx={{width: '100%'}}>
