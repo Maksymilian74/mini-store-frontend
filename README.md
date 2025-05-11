@@ -23,4 +23,5 @@ This project was made for a frontend recruitment task.
 To run the application locally:
 1. Install dependencies: npm install
 2. Start the development server: npm run dev
+   
 This will run the app at http://localhost:5173
