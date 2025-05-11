@@ -6,11 +6,13 @@ import PrimaryButton from '../../common/PrimaryButton/PrimaryButton';
 import QuantityTextField from '../../common/QuantityTextField/QuantityTextField';
 
 type ProductListCardProps = {
+  id: number;
   name: string;
   price: number;
+  onAddToCart: (quantity: number) => void;
 };
 
-const ProductListCard = ({name, price}: ProductListCardProps) => {
+const ProductListCard = ({name, price, onAddToCart}: ProductListCardProps) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
@@ -29,7 +31,9 @@ const ProductListCard = ({name, price}: ProductListCardProps) => {
           </Stack>
           <Stack direction="row" spacing={3} alignItems="center" sx={{px: 1}}>
             <QuantityTextField value={quantity} onChange={setQuantity} />
-            <PrimaryButton onClick={() => {}}>Dodaj do koszyka</PrimaryButton>
+            <PrimaryButton onClick={() => onAddToCart(quantity)}>
+              Dodaj do koszyka
+            </PrimaryButton>
           </Stack>
         </Stack>
       </CardContent>
