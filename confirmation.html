@@ -21,10 +21,9 @@
       const isGitHub = window.location.host.includes('github.io');
       const base = isGitHub ? '/mini-store-frontend/' : '/';
 
-      document.getElementById('backToList').addEventListener('click', (e) => {
-        e.preventDefault();
+      document.getElementById('backToList').addEventListener('click', () => {
         localStorage.removeItem('orderSummary');
-        window.location.href = base + 'list';
+        location.href = location.origin + (location.pathname.includes('mini-store-frontend') ? '/mini-store-frontend/list' : '/list');
       });
 
       const data = JSON.parse(localStorage.getItem('orderSummary'));
