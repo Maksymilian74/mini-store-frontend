@@ -12,28 +12,25 @@
 
     <main class="orderSummaryBox" id="summary"></main>
     <div style="text-align: center">
-      <button id="backToList" class="listReturnButton">
+      <a href="#" id="backToList" class="listReturnButton">
         Powrót do listy produktów
-      </button>
+      </a>
     </div>
 
     <script>
-      const isGitHub = location.host.includes('github.io');
+      const isGitHub = window.location.host.includes('github.io');
       const base = isGitHub ? '/mini-store-frontend/' : '/';
 
-      const backBtn = document.getElementById('backToList');
+      document.getElementById('backToList').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('orderSummary');
+        window.location.href = base + 'list';
+      });
 
-      if (backBtn) {
-        backBtn.addEventListener('click', () => {
-          localStorage.removeItem('orderSummary');
-          window.location.href = base + 'list';
-        });
-      }
-
-      const summaryEl = document.getElementById('summary');
       const data = JSON.parse(localStorage.getItem('orderSummary'));
+      const summaryEl = document.getElementById('summary');
 
-      if (!data || !Array.isArray(data.items) || data.items.length === 0) {
+      if (!data || !data.items?.length) {
         summaryEl.innerHTML = '<p>Brak danych zamówienia.</p>';
       } else {
         const itemsHTML = data.items
