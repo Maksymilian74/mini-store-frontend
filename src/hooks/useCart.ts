@@ -37,6 +37,8 @@ export const useCart = () => {
   };
 
   const changeQuantity = (id: number, quantity: number) => {
+    if (!Number.isFinite(quantity) || quantity < 0) return;
+
     if (quantity === 0) {
       removeFromCart(id);
       return;

@@ -37,11 +37,7 @@ function CartPage() {
             ))}
           </Stack>
           <Stack sx={{minWidth: '25%'}}>
-            <CartSummaryBox
-              total={total}
-              onBack={() => {}}
-              onProceed={() => {}}
-            />
+            <CartSummaryBox total={total} />
           </Stack>
         </Stack>
       </Stack>
