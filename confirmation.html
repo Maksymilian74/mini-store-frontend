@@ -1,56 +1,49 @@
 <!--Confirmation page displaying purchased items and total amount-->
 <!doctype html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Potwierdzenie zamówienia</title>
-    <link rel="stylesheet" href="confirmation.css" />
-  </head>
-  <body>
-    <div class="orderSuccess">Zamówienie złożone pomyślnie!</div>
-    <h1>Potwierdzenie złożenia zamówienia</h1>
+<head>
+  <meta charset="UTF-8" />
+  <title>Potwierdzenie zamówienia</title>
+  <link rel="stylesheet" href="confirmation.css" />
+</head>
+<body>
+<div class="orderSuccess">Zamówienie złożone pomyślnie!</div>
+<h1>Potwierdzenie złożenia zamówienia</h1>
 
-    <main class="orderSummaryBox" id="summary"></main>
-    <div style="text-align: center">
-      <a
-              href="#"
-              id="backToList"
-              class="listReturnButton"
-              onclick="localStorage.removeItem('orderSummary')"
-      >
-        Powrót do listy produktów
-      </a>
-    </div>
+<main class="orderSummaryBox" id="summary"></main>
+<div style="text-align: center">
+  <a
+          href="https://maksymilian74.github.io/mini-store-frontend/"
+          class="listReturnButton"
+          onclick="localStorage.removeItem('orderSummary')"
+  >
+    Powrót do listy produktów
+  </a>
+</div>
 
-    <script>
-      document.getElementById('backToList').addEventListener('click', (e) => {
-        e.preventDefault();
-        localStorage.removeItem('orderSummary');
-        window.location.href = '/mini-store-frontend/';
-      });
+<script>
+  const data = JSON.parse(localStorage.getItem('orderSummary'));
+  const summaryEl = document.getElementById('summary');
 
-      const data = JSON.parse(localStorage.getItem('orderSummary'));
-      const summaryEl = document.getElementById('summary');
+  if (!data || !Array.isArray(data.items) || data.items.length === 0) {
+    summaryEl.innerHTML = '<p>Brak danych zamówienia.</p>';
+  } else {
+    const itemsHTML = data.items
+            .map(
+                    (item) =>
+                            `<div class="orderItemRow"><span><strong>${item.name}</strong></span><span>${item.quantity} szt.</span></div>`
+            )
+            .join('');
 
-      if (!data || !data.items?.length) {
-        summaryEl.innerHTML = '<p>Brak danych zamówienia.</p>';
-      } else {
-        const itemsHTML = data.items
-                .map(
-                        (item) =>
-                                `<div class="orderItemRow"><span><strong>${item.name}</strong></span><span>${item.quantity} szt.</span></div>`
-                )
-                .join('');
+    summaryEl.innerHTML = `
+          ${itemsHTML}
+          <div class="orderTotal"><span>Łączna kwota</span><span>${data.total.toFixed(
+            2
+    )} PLN</span></div>
+        `;
+  }
 
-        summaryEl.innerHTML = `
-      ${itemsHTML}
-      <div class="orderTotal"><span>Łączna kwota</span><span>${data.total.toFixed(
-                2
-        )} PLN</span></div>
-    `;
-      }
-
-      localStorage.removeItem('cart');
-    </script>
-  </body>
+  localStorage.removeItem('cart');
+</script>
+</body>
 </html>
