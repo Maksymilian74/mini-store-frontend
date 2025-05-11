@@ -4,9 +4,11 @@ import SummaryCard from '../components/SummaryCard/SummaryCard';
 import OutlinedButton from '../common/OutlinedButton/OutlinedButton';
 import PrimaryButton from '../common/PrimaryButton/PrimaryButton';
 import {useCart} from '../hooks/useCart';
+import {useNavigate} from 'react-router-dom';
 
 function SummaryPage() {
   const {cartItems} = useCart();
+  const navigate = useNavigate();
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -42,7 +44,9 @@ function SummaryPage() {
           alignItems="center"
           sx={{width: '65%'}}
         >
-          <OutlinedButton onClick={() => {}}>Powrót do koszyka</OutlinedButton>
+          <OutlinedButton onClick={() => navigate('/cart')}>
+            Powrót do koszyka
+          </OutlinedButton>
           <PrimaryButton onClick={() => {}}>Złóż zamówienie</PrimaryButton>
         </Stack>
       </Stack>
