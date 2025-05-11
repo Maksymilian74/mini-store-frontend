@@ -18,18 +18,22 @@
     </div>
 
     <script>
-      const isGitHub = window.location.host.includes('github.io');
+      const isGitHub = location.host.includes('github.io');
       const base = isGitHub ? '/mini-store-frontend/' : '/';
 
-      document.getElementById('backToList').addEventListener('click', (e) => {
-        localStorage.removeItem('orderSummary');
-        window.location.href = base + 'list';
-      });
+      const backBtn = document.getElementById('backToList');
 
-      const data = JSON.parse(localStorage.getItem('orderSummary'));
+      if (backBtn) {
+        backBtn.addEventListener('click', () => {
+          localStorage.removeItem('orderSummary');
+          window.location.href = base + 'list';
+        });
+      }
+
       const summaryEl = document.getElementById('summary');
+      const data = JSON.parse(localStorage.getItem('orderSummary'));
 
-      if (!data || !data.items?.length) {
+      if (!data || !Array.isArray(data.items) || data.items.length === 0) {
         summaryEl.innerHTML = '<p>Brak danych zamówienia.</p>';
       } else {
         const itemsHTML = data.items
