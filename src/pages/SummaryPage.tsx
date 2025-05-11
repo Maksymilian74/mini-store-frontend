@@ -15,6 +15,18 @@ function SummaryPage() {
     0
   );
 
+  const handleOrder = () => {
+    localStorage.setItem(
+      'orderSummary',
+      JSON.stringify({
+        items: cartItems,
+        total: cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0),
+      })
+    );
+
+    window.location.href = '/confirmation.html';
+  };
+
   return (
     <Container sx={{width: '100%'}}>
       <Stack spacing={3} width="100%" alignItems="center" sx={{pb: 3}}>
@@ -47,7 +59,7 @@ function SummaryPage() {
           <OutlinedButton onClick={() => navigate('/cart')}>
             Powrót do koszyka
           </OutlinedButton>
-          <PrimaryButton onClick={() => {}}>Złóż zamówienie</PrimaryButton>
+          <PrimaryButton onClick={handleOrder}>Złóż zamówienie</PrimaryButton>
         </Stack>
       </Stack>
     </Container>
