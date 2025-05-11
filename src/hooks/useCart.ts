@@ -37,6 +37,11 @@ export const useCart = () => {
   };
 
   const changeQuantity = (id: number, quantity: number) => {
+    if (quantity === 0) {
+      removeFromCart(id);
+      return;
+    }
+
     const updated = cartItems.map((i) => (i.id === id ? {...i, quantity} : i));
     updateCart(updated);
   };
