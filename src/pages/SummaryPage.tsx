@@ -3,15 +3,25 @@ import {Typography, Container, Stack} from '@mui/material';
 import SummaryCard from '../components/SummaryCard/SummaryCard';
 import OutlinedButton from '../common/OutlinedButton/OutlinedButton';
 import PrimaryButton from '../common/PrimaryButton/PrimaryButton';
+import {useCart} from '../hooks/useCart';
 
-function ProductListPage() {
+function SummaryPage() {
+  const {cartItems} = useCart();
+
   return (
     <Container sx={{width: '100%'}}>
       <Stack spacing={3} width="100%" alignItems="center" sx={{pb: 3}}>
         <Typography variant="h1" component="h1">
           Podsumowanie zakupów
         </Typography>
-        <SummaryCard name="Banany BIO" price={3.49} quantity={2} />
+        {cartItems.map((item) => (
+          <SummaryCard
+            key={item.id}
+            name={item.name}
+            price={item.price}
+            quantity={item.quantity}
+          />
+        ))}
         <Stack
           spacing={2}
           direction="row"
@@ -35,4 +45,4 @@ function ProductListPage() {
   );
 }
 
-export default ProductListPage;
+export default SummaryPage;
