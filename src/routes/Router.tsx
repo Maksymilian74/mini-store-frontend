@@ -13,6 +13,7 @@ export function AppRoutes() {
         <Route path="/list" element={<ProductListPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/summary" element={<SummaryPage />} />
+        <Route path="*" element={<Navigate to="/list" replace />} />
       </Route>
     </Routes>
   );
