@@ -22,7 +22,6 @@
       const base = isGitHub ? '/mini-store-frontend/' : '/';
 
       document.getElementById('backToList').addEventListener('click', (e) => {
-        e.preventDefault();
         localStorage.removeItem('orderSummary');
         window.location.href = base + 'list';
       });
