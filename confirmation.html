@@ -13,9 +13,14 @@
     <main class="orderSummaryBox" id="summary"></main>
     <div style="text-align: center">
       <a
-        href="/list"
-        class="listReturnButton"
-        onclick="localStorage.removeItem('orderSummary')"
+              href="#"
+              class="listReturnButton"
+              onclick="
+    localStorage.removeItem('orderSummary');
+    location.href = location.host.includes('github.io')
+      ? '/mini-store-frontend/list'
+      : '/list';
+  "
       >
         Powrót do listy produktów
       </a>
