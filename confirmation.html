@@ -24,7 +24,7 @@
       document.getElementById('backToList').addEventListener('click', (e) => {
         e.preventDefault();
         localStorage.removeItem('orderSummary');
-        window.location.href = base + '#/list';
+        window.location.href = base + 'list';
       });
 
       const data = JSON.parse(localStorage.getItem('orderSummary'));
