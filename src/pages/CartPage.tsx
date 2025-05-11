@@ -7,6 +7,11 @@ import {useCart} from '../hooks/useCart';
 function CartPage() {
   const {cartItems, removeFromCart, changeQuantity} = useCart();
 
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   return (
     <Container sx={{width: '100%'}}>
       <Stack spacing={3} width="100%" alignItems="center" sx={{pb: 3}}>
@@ -33,7 +38,7 @@ function CartPage() {
           </Stack>
           <Stack sx={{minWidth: '25%'}}>
             <CartSummaryBox
-              total={10.43}
+              total={total}
               onBack={() => {}}
               onProceed={() => {}}
             />
