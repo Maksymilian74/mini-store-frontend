@@ -31,7 +31,13 @@ const ProductListCard = ({name, price, onAddToCart}: ProductListCardProps) => {
           </Stack>
           <Stack direction="row" spacing={3} alignItems="center" sx={{px: 1}}>
             <QuantityTextField value={quantity} onChange={setQuantity} />
-            <PrimaryButton onClick={() => onAddToCart(quantity)}>
+            <PrimaryButton
+              onClick={() => {
+                if (quantity > 0) {
+                  onAddToCart(quantity);
+                }
+              }}
+            >
               Dodaj do koszyka
             </PrimaryButton>
           </Stack>
