@@ -4,6 +4,7 @@ import ProductListCard from '../components/ProductListCard/ProductListCard';
 import products from '../data/products.json';
 import {useCart} from '../hooks/useCart';
 import type {Product} from '../types/Product';
+import {toast} from 'react-toastify';
 
 const typedProducts: Product[] = products;
 
@@ -22,14 +23,15 @@ function ProductListPage() {
             id={product.id}
             name={product.name}
             price={product.price.main + product.price.fractional / 100}
-            onAddToCart={(quantity) =>
+            onAddToCart={(quantity) => {
               addToCart({
                 id: product.id,
                 name: product.name,
                 price: product.price.main + product.price.fractional / 100,
                 quantity,
-              })
-            }
+              });
+              toast.success(`Dodano do koszyka`);
+            }}
           />
         ))}
       </Stack>
