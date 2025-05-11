@@ -18,39 +18,33 @@
     </div>
 
     <script>
-      const isGitHub = location.host.includes('github.io');
+      const isGitHub = window.location.host.includes('github.io');
       const base = isGitHub ? '/mini-store-frontend/' : '/';
 
-      const backBtn = document.getElementById('backToList');
-      if (backBtn) {
-        backBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          localStorage.removeItem('orderSummary');
-          location.href = base + 'list';
-        });
-      }
+      document.getElementById('backToList').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('orderSummary');
+        window.location.href = base + 'list';
+      });
 
+      const data = JSON.parse(localStorage.getItem('orderSummary'));
       const summaryEl = document.getElementById('summary');
-      const orderData = JSON.parse(localStorage.getItem('orderSummary'));
 
-      if (!orderData || !Array.isArray(orderData.items) || orderData.items.length === 0) {
+      if (!data || !data.items?.length) {
         summaryEl.innerHTML = '<p>Brak danych zamówienia.</p>';
       } else {
-        const itemsHTML = orderData.items
-                .map(item => `
-        <div class="orderItemRow">
-          <span><strong>${item.name}</strong></span>
-          <span>${item.quantity} szt.</span>
-        </div>
-      `)
+        const itemsHTML = data.items
+                .map(
+                        (item) =>
+                                `<div class="orderItemRow"><span><strong>${item.name}</strong></span><span>${item.quantity} szt.</span></div>`
+                )
                 .join('');
 
         summaryEl.innerHTML = `
       ${itemsHTML}
-      <div class="orderTotal">
-        <span>Łączna kwota</span>
-        <span>${orderData.total.toFixed(2)} PLN</span>
-      </div>
+      <div class="orderTotal"><span>Łączna kwota</span><span>${data.total.toFixed(
+                2
+        )} PLN</span></div>
     `;
       }
 
